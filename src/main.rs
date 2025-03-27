@@ -2,8 +2,8 @@
 macro_rules! read {
     ($out:ident as $type:ty) => {
         let mut inner = String::new();
-        std::io::stdin().read_line(&mut inner).expect("A String");
-        let $out = inner.trim().parse::<$type>().expect("Parsable");
+        std::io::stdin().read_line(&mut inner).unwrap();
+        let $out = inner.trim().parse::<$type>().unwrap();
     };
 }
 
@@ -11,7 +11,7 @@ macro_rules! read {
 macro_rules! read_str {
     ($out:ident) => {
         let mut inner = String::new();
-        std::io::stdin().read_line(&mut inner).expect("A String");
+        std::io::stdin().read_line(&mut inner).unwrap();
         let $out = inner.trim();
     };
 }
